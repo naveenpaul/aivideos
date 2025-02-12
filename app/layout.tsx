@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
+import { IBM_Plex_Sans } from "next/font/google";
+
+const ibm = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Engaging AI Videos",
@@ -15,9 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      
-      <body>{children}
-      <Analytics/>
+      <body className={ibm.className}>
+        {children}
+        <Analytics />
       </body>
     </html>
   );
